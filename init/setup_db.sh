@@ -4,7 +4,10 @@
 DB_USER=${DB_USER:-postgres}
 DB_PASSWORD=${DB_PASSWORD:-postgres}
 DB_NAME=${DB_NAME:-dvdrental}
-DB_HOST=${DB_HOST:-postgres-container}
+# Cuando este script se ejecuta dentro del contenedor de PostgreSQL, el servidor
+# escucha en localhost. Usar el nombre del contenedor provoca un fallo de
+# conexión, por lo que se establece localhost como valor por defecto.
+DB_HOST=${DB_HOST:-localhost}
 DB_PORT=${DB_PORT:-5432}
 
 # Descargar el archivo de respaldo
